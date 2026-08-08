@@ -5,6 +5,9 @@
     <meta charset="utf-8">
     <meta content="width=device-width,initial-scale=1" name="viewport">
     <title>Simplifying Compliance For Research Analysts</title>
+    <meta name="description"
+        content="End-to-end compliance support for research analysts and firms — regulatory filings made simple, with tailored solutions and proactive risk protection.">
+    <meta name="theme-color" content="#4356d6">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -19,14 +22,14 @@
         <nav class="navbar">
             <div class="container nav-wrapper">
                 <a class="logo" href="#">
-                    <img alt="Logo" src="./assets/logo.png">
+                    <img alt="Logo" src="./assets/logo.png" width="46" height="50">
                     <span>Logo</span>
                 </a>
 
                 <ul class="nav-links" id="navLinks">
                     <li class="sidebar-header">
                         <span class="logo">
-                            <img src="./assets/logo.png" alt="Logo">
+                            <img src="./assets/logo.png" alt="Logo" width="46" height="50">
                             <span>Logo</span>
                         </span>
                         <button class="sidebar-close" id="sidebarClose" aria-label="Close menu">
@@ -91,10 +94,12 @@
                     </p>
 
                     <ul class="hero-features">
-                        <li><img alt="" src="./assets/check.png"> End-To-End Compliance Support</li>
-                        <li><img alt="" src="./assets/check.png"> Regulatory Filings Made Simple</li>
-                        <li><img alt="" src="./assets/check.png"> Tailored Solutions For Independent Analysts &amp; Firms
+                        <li><img alt="" src="./assets/check.png" width="24" height="24"> End-To-End Compliance Support
                         </li>
+                        <li><img alt="" src="./assets/check.png" width="24" height="24"> Regulatory Filings Made Simple
+                        </li>
+                        <li><img alt="" src="./assets/check.png" width="24" height="24"> Tailored Solutions For
+                            Independent Analysts &amp; Firms</li>
                     </ul>
 
                     <div class="hero-buttons">
@@ -104,7 +109,8 @@
                 </div>
 
                 <div class="hero-right">
-                    <img alt="Research analyst illustration" class="hero-image" src="./assets/Group 21.png">
+                    <img alt="Research analyst illustration" class="hero-image" src="./assets/Group 21.png" width="636"
+                        height="523" fetchpriority="high">
                 </div>
             </div>
         </section>
@@ -125,13 +131,15 @@
                 </p>
 
                 <div class="features-illustration">
-                    <img alt="Compliance analytics illustration" src="./assets/Group 13.png">
-                    <span class="arrows" aria-hidden="true">❯❯❯❯❯❯</span>
+                    <img alt="Compliance analytics illustration" src="./assets/Group 13.png" width="614" height="594"
+                        loading="lazy">
+                    <span class="arrows" aria-hidden="true"></span>
                 </div>
 
                 <div class="feature-cards">
                     <article class="feature-card">
-                        <span class="fc-icon"><img alt="" src="./assets/Search.png"></span>
+                        <span class="fc-icon"><img alt="" src="./assets/Search.png" width="36" height="36"
+                                loading="lazy"></span>
                         <div class="fc-text">
                             <h3>Regulatory Clarity</h3>
                             <p>We Decode Complex Compliance Rules Into Simple, Actionable Steps.</p>
@@ -139,7 +147,8 @@
                     </article>
 
                     <article class="feature-card">
-                        <span class="fc-icon"><img alt="" src="./assets/Mask group22.png"></span>
+                        <span class="fc-icon"><img alt="" src="./assets/Mask group22.png" width="36" height="36"
+                                loading="lazy"></span>
                         <div class="fc-text">
                             <h3>Hassle-Free Filings Clarity</h3>
                             <p>From Registration To Ongoing Reporting—We Manage It End-To-End.</p>
@@ -147,7 +156,8 @@
                     </article>
 
                     <article class="feature-card">
-                        <span class="fc-icon"><img alt="" src="./assets/seuirty.png"></span>
+                        <span class="fc-icon"><img alt="" src="./assets/seuirty.png" width="36" height="36"
+                                loading="lazy"></span>
                         <div class="fc-text">
                             <h3>Risk Protection</h3>
                             <p>Stay Ahead Of Audits, Inspections, And Compliance Gaps With Proactive Support.</p>
@@ -169,13 +179,24 @@
             menuOverlay.classList.add('active');
             document.body.classList.add('no-scroll');
             menuToggle.setAttribute('aria-expanded', 'true');
+            menuToggle.setAttribute('aria-label', 'Close menu');
+            sidebarClose.focus();
         }
 
         function closeMenu() {
+            if (!navLinks.classList.contains('active')) return;
+
+            // Move focus out of the menu before hiding it, otherwise the
+            // focused element disappears and focus falls back to <body>.
+            const focusWasInside = navLinks.contains(document.activeElement);
+
             navLinks.classList.remove('active');
             menuOverlay.classList.remove('active');
             document.body.classList.remove('no-scroll');
             menuToggle.setAttribute('aria-expanded', 'false');
+            menuToggle.setAttribute('aria-label', 'Open menu');
+
+            if (focusWasInside) menuToggle.focus();
         }
 
         menuToggle.addEventListener('click', () => {
