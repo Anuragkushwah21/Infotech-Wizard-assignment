@@ -4,6 +4,12 @@
    Palette note: --primary / --primary-soft / --heading are sampled
    straight out of the exported assets (logo.png, Search.png,
    check.png, Vector1.png) so the UI matches the artwork exactly.
+
+   Text colours: the design has NO grey text and no pure #000 — every
+   piece of copy is one of two near-blacks. Headings/logo/nav use
+   --heading (#1B1B43); body copy, list items and card text use
+   --body-text (#2B2B3D). Don't reintroduce greys like #64647F /
+   #3D3D52 / #9A9AB5 — that was the reviewer's "colour not same" note.
    ========================================================= */
 
 :root {
@@ -12,7 +18,7 @@
     --primary-soft: #e2e2ff;
     --primary-tint: #efefff;
     --heading: #1b1b43;
-    --body-text: #64647f;
+    --body-text: #2b2b3d;
     --border: #e4e4f5;
     --hero-bg: #f6f6ff;
     --card-bg: #fafaff;
@@ -185,8 +191,9 @@ button {
     display: block;
     text-decoration: none;
     font-size: 15px;
-    font-weight: 500;
-    color: #3d3d52;
+    /* Inter SemiBold — matches the design's nav style (it was 500) */
+    font-weight: 600;
+    color: var(--body-text);
     white-space: nowrap;
     transition: color .25s ease;
 }
@@ -300,7 +307,7 @@ button {
     gap: 12px;
     font-size: 15px;
     font-weight: 500;
-    color: #2b2b3d;
+    color: var(--body-text);
 }
 
 .hero-features img {
@@ -573,7 +580,7 @@ button {
         width: 20px;
         text-align: center;
         font-size: 15px;
-        color: #9a9ab5;
+        color: var(--body-text);
         transition: color .25s ease;
     }
 

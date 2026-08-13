@@ -16,9 +16,15 @@
 </head>
 
 <body>
-    <div class="menu-overlay" id="menuOverlay"></div>
-
     <header class="site-header">
+        <!-- The overlay lives INSIDE .site-header on purpose. The header is
+             sticky with z-index:100, which makes it a stacking context, so
+             the sidebar's z-index:1001 is only compared against other
+             children of the header. With the overlay outside, its z-index
+             1000 beat the whole header (100) and painted over the sidebar,
+             dimming it and swallowing taps on the links. -->
+        <div class="menu-overlay" id="menuOverlay"></div>
+
         <nav class="navbar">
             <div class="container nav-wrapper">
                 <a class="logo" href="#">
