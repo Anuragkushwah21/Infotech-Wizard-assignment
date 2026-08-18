@@ -83,14 +83,17 @@
                         Simplifying
                         <span class="highlight">
                             Compliance
-                            <svg class="underline" viewBox="0 0 240 12" preserveAspectRatio="none" aria-hidden="true"
+                            <svg class="underline" viewBox="0 0 240 16" preserveAspectRatio="none" aria-hidden="true"
                                 focusable="false">
-                                <path d="M2 8.5C48 4 120 2.5 238 5.5" fill="none" stroke="currentColor"
-                                    stroke-width="3.5" stroke-linecap="round" />
+                                <path d="M3 4C60 5.2 160 8 237 11" fill="none" stroke="currentColor" stroke-width="6"
+                                    stroke-linecap="round" />
                             </svg>
                         </span>
+                        <!-- The design breaks after "Compliance" at 768 and after "For"
+                             at 1440; below 600 it wraps on its own. -->
+                        <br class="brk-md">
                         For
-                        <br class="line-break">
+                        <br class="brk-lg">
                         Research Analysts
                     </h1>
 
@@ -104,8 +107,8 @@
                         </li>
                         <li><img alt="" src="./assets/check.png" width="24" height="24"> Regulatory Filings Made Simple
                         </li>
-                        <li><img alt="" src="./assets/check.png" width="24" height="24"> Tailored Solutions For
-                            Independent Analysts &amp; Firms</li>
+                        <li><img alt="" src="./assets/check.png" width="24" height="24"> Tailored Solutions For<br
+                                class="brk-sm"> Independent Analysts &amp; Firms</li>
                     </ul>
 
                     <div class="hero-buttons">
@@ -139,7 +142,17 @@
                 <div class="features-illustration">
                     <img alt="Compliance analytics illustration" src="./assets/Group 13.png" width="614" height="594"
                         loading="lazy">
-                    <span class="arrows" aria-hidden="true"></span>
+                    <!-- Chevron row. Drawn as six overlapping <img>s rather than a
+                         repeating background: the design overlaps them (≈20px pitch
+                         for a 33px-wide glyph), which background-repeat can't do. -->
+                    <span class="arrows" aria-hidden="true">
+                        <img alt="" src="./assets/Vector1.png" width="33" height="43" loading="lazy">
+                        <img alt="" src="./assets/Vector1.png" width="33" height="43" loading="lazy">
+                        <img alt="" src="./assets/Vector1.png" width="33" height="43" loading="lazy">
+                        <img alt="" src="./assets/Vector1.png" width="33" height="43" loading="lazy">
+                        <img alt="" src="./assets/Vector1.png" width="33" height="43" loading="lazy">
+                        <img alt="" src="./assets/Vector1.png" width="33" height="43" loading="lazy">
+                    </span>
                 </div>
 
                 <div class="feature-cards">
