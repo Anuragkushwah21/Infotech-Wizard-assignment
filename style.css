@@ -23,11 +23,11 @@
     --card-bg: #fafbff;
     --radius: 8px;
     --container: 1440px;
-    /* ~100px, not 80: it's the only content width that reconciles all the
-       measurements off the design — the hero (566 copy + 24 + 636 art), the
-       feature row (614 art + 43 + 583 cards) and the chevron strip sitting
-       4px off the viewport edge all land inside 1240. */
-    --gutter: 100px;
+    /* 80px: the design's hero row is 566 copy + 14 + 700 artwork = 1280,
+       which leaves exactly 80px either side of a 1440 frame. Anchored on
+       the gap the design shows between the end of the headline's longest
+       line and the artwork (69px). */
+    --gutter: 80px;
     /* hero text column measured off the design (the body paragraph wraps
        at ~566px) — the illustration takes whatever is left */
     --hero-copy: 566px;
@@ -265,13 +265,13 @@ button {
 }
 
 /* Not 1fr 1fr: in the design the copy column is a fixed ~566px and the
-   illustration sits immediately to its right (only ~24px away), left
-   aligned in the remaining space. */
+   artwork sits close beside it — 69px from the end of the headline's
+   longest line, which is a 14px column gap. */
 .hero-container {
     display: grid;
     grid-template-columns: minmax(0, var(--hero-copy)) 1fr;
     align-items: center;
-    gap: 24px;
+    gap: 14px;
 }
 
 /* Grid items default to min-width:auto, so a wide child (long headline,
@@ -281,11 +281,11 @@ button {
     min-width: 0;
 }
 
-/* Bold (700), not ExtraBold, and a much looser line box — measured
-   ≈1.45× off the design. Tracking is neutral there, not -1px. */
+/* Bold (700), not ExtraBold, and a much looser line box — the design's
+   baseline-to-baseline is 76.5px on 56px type. Tracking is neutral. */
 .hero-title {
     font-size: 56px;
-    line-height: 1.45;
+    line-height: 1.37;
     font-weight: 700;
     letter-spacing: 0;
     color: var(--heading);
@@ -329,8 +329,8 @@ button {
     list-style: none;
     margin-top: 26px;
     display: grid;
-    /* 24px line box + 10px gap = the ~34px pitch measured in the design */
-    gap: 10px;
+    /* 24px line box + 12px gap = the 36px pitch measured in the design */
+    gap: 12px;
 }
 
 .hero-features li {
@@ -353,7 +353,7 @@ button {
 .hero-buttons {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 24px;
     margin-top: 34px;
 }
 
@@ -362,9 +362,11 @@ button {
     justify-content: flex-start;
 }
 
+/* The design scales the 636px export up to ~700px — the chevron strip
+   baked into it measures 131px there against 119px at 1:1. */
 .hero-image {
     width: 100%;
-    max-width: 636px;
+    max-width: 700px;
 }
 
 /* =========================================================
@@ -380,7 +382,7 @@ button {
    noticeably narrower than half the row. */
 .features-container {
     display: grid;
-    grid-template-columns: minmax(0, 614px) 1fr;
+    grid-template-columns: minmax(0, 675px) 1fr;
     column-gap: 43px;
     /* The design leaves a big void between the intro copy and the first
        card (≈80px from the last baseline) — 30px was far too tight. */
@@ -417,8 +419,9 @@ button {
 
 .features-illustration > img {
     width: 100%;
-    /* Group 13.png is exported 1:1 from the design (614×594) */
-    max-width: 614px;
+    /* Group 13.png exports at 614×594 but the design scales it up by the
+       same ~1.1 factor as the hero artwork */
+    max-width: 675px;
 }
 
 /* Chevron row — the design's chevrons are smaller than the raw asset and
