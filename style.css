@@ -305,14 +305,15 @@ button {
     display: none;
 }
 
-/* Near-straight stroke sloping slightly down to the right, ~6px thick and
-   sitting well clear of the descenders (the old one curved upward). */
+/* Sits 15px below the baseline in the design and is 14px tall, both
+   expressed in em so it tracks the headline size at every breakpoint. */
 .hero-title .underline {
     position: absolute;
-    left: 0;
-    bottom: -.27em;
-    width: 100%;
-    height: .286em;
+    /* the swash overhangs the word slightly, mostly on the right */
+    left: -.02em;
+    bottom: -.197em;
+    width: calc(100% + .12em);
+    height: .25em;
     color: var(--primary);
     overflow: visible;
 }
